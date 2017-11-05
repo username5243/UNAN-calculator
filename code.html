@@ -4,17 +4,20 @@
 <script>
 function step(a) {
 var a = box.value;
+var p = -1;
+var p2 = -1;
 for(var i=0;i<a.length;i++) {
 if(a[i]=="[")  {
 s = i;
 }
 if(a[i]=="]")  {
-f = i;
+p2 = p;
+p = i;
 }
 }
-var b = {base:a.slice(0,s),array:a.slice(s+1,f),iterator:a.slice(f+1,a.length)};
+var b = {ignored:a.slice(0,p2+1),base:a.slice(p2+1,s),array:a.slice(s+1,p),iterator:a.slice(p+1,a.length)};
 if(b.array="0")  {
-return b.base*b.iterator;
+return b.ignored+b.base*b.iterator;
 }
 }
 </script>
