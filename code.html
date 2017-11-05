@@ -2,21 +2,19 @@
 <head>
 <title>UNAN Calculator</title>
 <script>
+function step(a) {
 var a = box.value;
-function step(x) {
 for(var i=0;i<a.length;i++) {
 if(a[i]=="[")  {
 s = i;
-a.base = a.slice(0,i);
 }
 if(a[i]=="]")  {
 f = i;
-a.array = a.slice(s+1,i);
-a.iterator = a.slice(f+1,a.length);
 }
 }
-if(a.array="0")  {
-return a.base*a.iterator;
+var b = {base:a.slice(0,s),array:a.slice(s+1,f),iterator:a.slice(f+1,a.length)};
+if(b.array="0")  {
+return b.base*b.iterator;
 }
 }
 </script>
