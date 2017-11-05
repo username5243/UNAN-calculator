@@ -1,0 +1,18 @@
+Here are rules of UNAN:
+
+a[0]b = a*b
+a[x]1 = a
+a[n+1]b+1 = a[n]a[n+1]b
+a[x,0]b = a[x]b
+
+Some terms used:
+
+The base is the first number, before the brackets.
+The iterator is the last number, after the brackets.
+
+If the array starts with 0, follow the process below:
+
+Case A: If the entry is a 0, move to the next entry
+Case B: If the entry is higher than 0, then decrease it by 1 and change the previous entry to the iterator. Set the iterator to the base. The process ends.
+
+More to follow
