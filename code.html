@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>UNAN Calculator</title>
+<script>
+var a = box.value;
+function step(x) {
+for(var i=0;i<a.length;i++) {
+if(a[i]=="[")  {
+s = i;
+a.base = a.slice(0,i);
+}
+if(a[i]=="]")  {
+f = i;
+a.array = a.slice(s+1,i);
+a.iterator = a.slice(f+1,a.length);
+}
+}
+if(a.array="0")  {
+return a.base*a.iterator;
+}
+}
+</script>
+</head>
+<body>
+THis is my UNAN calculator. It goes to FGH level 1 now. Type the array in the box and hit the "step" button to calculate.
+<input id="box" value="2[0]2"></input>
+<button onclick="box.value=step(box.value)">One step</button>
+</body>
+</html>
