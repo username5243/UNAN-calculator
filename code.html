@@ -3,9 +3,9 @@
 <title>UNAN Calculator</title>
 <script>
 function step(a) {
-var a = box.value;
 var p = -1;
 var p2 = -1;
+if(a.search("\\[")==-1) return a;
 for(var i=0;i<a.length;i++) {
 if(a[i]=="[")  {
 s = i;
@@ -20,11 +20,22 @@ if(b.array="0")  {
 return b.ignored+b.base*b.iterator;
 }
 }
+function calculate(a)  {
+var n = 0;
+while(a.search("\\[")>-1) {
+while (n<50) {
+a = step(a);
+n++;
+}
+}
+return a;
+}
 </script>
 </head>
 <body>
-THis is my UNAN calculator. It goes to FGH level 1 now. Type the array in the box and hit the "step" button to calculate.
+THis is my UNAN calculator. It goes to FGH level 1 now. Type the array in the box and hit the "step" button to do one step, or the "calculate" button to do the full calculation.
 <input id="box" value="2[0]2"></input>
+<button onclick="box.value=calculate(box.value)">Calculate</button>
 <button onclick="box.value=step(box.value)">One step</button>
 </body>
 </html>
