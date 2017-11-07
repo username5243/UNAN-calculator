@@ -16,9 +16,9 @@ p = i;
 }
 }
 var b = {ignored:a.slice(0,p2+1),base:a.slice(p2+1,s),array:a.slice(s+1,p),iterator:a.slice(p+1,a.length)};
-if(b.array="0")  {
-return b.ignored+b.base*b.iterator;
-}
+if(b.iterator==1) return b.ignored+b.base;
+if(b.array==0)  return b.ignored+b.base*b.iterator;
+return b.ignored+b.base+"["+(b.array-1)+"]"+b.base+"["+b.array+"]"+(b.iterator-1)
 }
 function calculate(a)  {
 var n = 0;
@@ -33,7 +33,7 @@ return a;
 </script>
 </head>
 <body>
-THis is my UNAN calculator. It goes to FGH level 1 now. Type the array in the box and hit the "step" button to do one step, or the "calculate" button to do the full calculation.
+THis is my UNAN calculator. It goes to FGH level w now. Type the array in the box and hit the "step" button to do one step, or the "calculate" button to do the full calculation.
 <input id="box" value="2[0]2"></input>
 <button onclick="box.value=calculate(box.value)">Calculate</button>
 <button onclick="box.value=step(box.value)">One step</button>
